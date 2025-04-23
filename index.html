@@ -6,7 +6,7 @@
   <title>Supplementary Figures – Palliative Care in HF</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: Calibri;
       margin: 0;
       padding: 0;
       background-color: #f4faff;
@@ -63,7 +63,13 @@
       text-align: center;
       color: #004080;
     }
+    h3 {
+      text-align: center;
+      color: #004080;
+      font-weight: lighter;
+    }
     h4 {
+      font-weight: lighter;
       text-align: justify;
       color: #003366;
       background-color: #eaf3ff;
@@ -113,6 +119,27 @@
       mask-position: center;
       -webkit-mask-position: center;
     }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #004080;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: none; /* Hidden by default */
+      z-index: 1001;
+    }
+
+    .back-to-top:hover {
+      background-color: #003366;
+    }
   </style>
 </head>
 <body>
@@ -137,6 +164,7 @@
   <div class="main-content" id="mainContent">
     <h1>Supplementary Figures</h1>
     <h2>Palliative Care Needs in Heart Failure</h2>
+    <h3>Media Mokhtarnia</h3>
     <h4>The following figures show the trajectories for all the palliative care needs measured in this study. The X-axis represents the number of days, while the Y-axis shows the cumulative scores assigned to participants at baseline and during follow-up visits, based on whether they had any palliative care needs at baseline and whether the needs improved, remained unchanged, or worsened over time.  Each black line in the figure represents an individual trajectory, while the red line denotes a LOESS-smoothed curve summarizing the overall trend.</h4>
 
     <details id="fig1">
@@ -214,12 +242,30 @@
     </div>
   </div>
 
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑ Back to Top</button>
+
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const content = document.getElementById('mainContent');
       sidebar.classList.toggle('hidden');
       content.classList.toggle('full-width');
+    }
+
+    // Show or hide the Back to Top button based on scroll position
+    window.addEventListener('scroll', () => {
+      const backToTopButton = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+
+    // Scroll to the top of the page when the button is clicked
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
